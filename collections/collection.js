@@ -1,22 +1,34 @@
-Collection = new Meteor.Collection( 'collection' );
+Invitations = new Meteor.Collection( 'invitations' );
 
-Collection.allow({
+Invitations.allow({
   insert: () => false,
   update: () => false,
   remove: () => false
 });
 
-Collection.deny({
+Invitations.deny({
   insert: () => true,
   update: () => true,
   remove: () => true
 });
 
-let CollectionSchema = new SimpleSchema({
-  "owner": {
+let InvitationsSchema = new SimpleSchema({
+  email: {
     type: String,
-    label: "The ID of the owner of this document."
+    label: "Email to send invitation to."
+  },
+  token: {
+    type: String,
+    label: "Invitation token."
+  },
+  role: {
+    type: String,
+    label: "Role to apply to the user."
+  },
+  date: {
+    type: String,
+    label: "Invitation Date"
   }
 });
 
-Collection.attachSchema( CollectionSchema );
+Invitations.attachSchema( InvitationsSchema );
