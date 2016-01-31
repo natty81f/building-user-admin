@@ -1,3 +1,9 @@
+const publicRedirect = ( context, redirect ) => {
+  if ( Meteor.userId() ) {
+    Modules.both.redirectUser( { redirect: redirect } );
+  }
+};
+
 const publicRoutes = FlowRouter.group({
   name: 'public',
   triggersEnter: [ publicRedirect ]
