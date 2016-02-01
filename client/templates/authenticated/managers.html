@@ -1,3 +1,6 @@
+
 <template name="managers">
-  <h3>Managers</h3>
+  {{#if isInRole 'admin,manager'}}
+    <h3>Managers</h3>
+  {{/if}}
 </template>
