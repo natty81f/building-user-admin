@@ -7,15 +7,7 @@ const publicRedirect = ( context, redirect ) => {
 const publicRoutes = FlowRouter.group({
   name: 'public',
   triggersEnter: [ publicRedirect ]
-  //triggersEnter - allows us to define an array of functions to be called before all of the routes in the public group.
 });
-
-// publicRoutes.route( '/signup', {
-//   name: 'signup',
-//   action() {
-//     BlazeLayout.render( 'default', { yield: 'signup' } );
-//   }
-// });
 
 publicRoutes.route( '/invite/:token', {
   name: 'invite',
